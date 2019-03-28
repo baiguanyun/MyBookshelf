@@ -13,14 +13,14 @@ def gitCommits = Integer.parseInt('git rev-list --count HEAD'.execute([], projec
 android {
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
-    signingConfigs {
+    /*signingConfigs {
         myConfig {
             storeFile file(RELEASE_STORE_FILE)
             storePassword RELEASE_KEY_PASSWORD
             keyAlias RELEASE_KEY_ALIAS
             keyPassword RELEASE_STORE_PASSWORD
         }
-    }
+    }*/
 
     defaultConfig {
         applicationId "com.gedoor.monkeybook"
@@ -43,8 +43,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
-            signingConfig signingConfigs.myConfig
-            applicationIdSuffix '.debug'
+            //signingConfig signingConfigs.myConfig
+            //applicationIdSuffix '.debug'
             versionNameSuffix ' debug'
             buildConfigField "boolean", "IS_RELEASE", "false"
             minifyEnabled false
