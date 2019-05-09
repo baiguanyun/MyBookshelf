@@ -215,6 +215,9 @@ public class PageView extends View {
         if (!isPrepare) return;
         if (mPageLoader != null) {
             mPageLoader.drawPage(getBgBitmap(pageOnCur), pageOnCur);
+            if (mPageAnim instanceof SimulationPageAnim) {
+                ((SimulationPageAnim) mPageAnim).onPageDrawn(pageOnCur);
+            }
         }
         invalidate();
     }
@@ -444,6 +447,11 @@ public class PageView extends View {
         }
 
         return mPageLoader;
+    }
+
+    public void autoChangeSource() {
+        mPageLoader.setStatus(TxtChapter.Status.CHANGE_SOURCE);
+        activity.autoChangeSource();
     }
 
     public void showSnackBar(String msg) {

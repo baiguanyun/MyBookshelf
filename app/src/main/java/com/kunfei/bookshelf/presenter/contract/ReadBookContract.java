@@ -46,6 +46,7 @@ public interface ReadBookContract {
 
         void finish();
 
+        void recreate();
     }
 
     interface Presenter extends IPresenter {
@@ -67,6 +68,8 @@ public interface ReadBookContract {
         void addDownload(int start, int end);
 
         void changeBookSource(SearchBookBean searchBookBean);
+
+        void autoChangeSource();
 
         void saveBookmark(BookmarkBean bookmarkBean);
 

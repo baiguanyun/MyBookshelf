@@ -74,6 +74,16 @@ public class ReadInterfacePop extends FrameLayout {
     NumberButton nbParagraphSize;
     @BindView(R.id.fl_indent)
     TextView tvIndent;
+    @BindView(R.id.nbTipPaddingTop)
+    NumberButton nbTipPaddingTop;
+    @BindView(R.id.nbTipPaddingBottom)
+    NumberButton nbTipPaddingBottom;
+    @BindView(R.id.nbTipPaddingLeft)
+    NumberButton nbTipPaddingLeft;
+    @BindView(R.id.nbTipPaddingRight)
+    NumberButton nbTipPaddingRight;
+    @BindView(R.id.nbLetterSpacing)
+    NumberButton nbLetterSpacing;
 
     private ReadBookActivity activity;
     private ReadBookControl readBookControl = ReadBookControl.getInstance();
@@ -95,8 +105,7 @@ public class ReadInterfacePop extends FrameLayout {
     }
 
     private void init(Context context) {
-        View view = LayoutInflater.from(context).inflate(R.layout.pop_read_interface, null);
-        addView(view);
+        View view = LayoutInflater.from(context).inflate(R.layout.pop_read_interface, this);
         ButterKnife.bind(this, view);
         view.setOnClickListener(null);
     }
@@ -120,6 +129,18 @@ public class ReadInterfacePop extends FrameLayout {
                 .setNumber(readBookControl.getTextSize())
                 .setOnChangedListener(number -> {
                     readBookControl.setTextSize((int) number);
+                    changeProListener.upTextSize();
+                });
+
+        nbLetterSpacing.setTitle(activity.getContext().getString(R.string.text_letter_spacing))
+                .setNumberType(NumberButton.FLOAT)
+                .setMinNumber(-0.5f)
+                .setMaxNumber(0.5f)
+                .setStepNumber(0.01f)
+                .setFormat("0.00")
+                .setNumber(readBookControl.getTextLetterSpacing())
+                .setOnChangedListener(number -> {
+                    readBookControl.setTextLetterSpacing(number);
                     changeProListener.upTextSize();
                 });
 
@@ -184,6 +205,45 @@ public class ReadInterfacePop extends FrameLayout {
                 .setNumber(readBookControl.getPaddingRight())
                 .setOnChangedListener(number -> {
                     readBookControl.setPaddingRight((int) number);
+                    changeProListener.upMargin();
+                });
+        nbTipPaddingTop.setTitle(activity.getString(R.string.padding_top))
+                .setMinNumber(0)
+                .setMaxNumber(100)
+                .setStepNumber(1)
+                .setNumber(readBookControl.getTipPaddingTop())
+                .setOnChangedListener(number -> {
+                    readBookControl.setTipPaddingTop((int) number);
+                    changeProListener.upMargin();
+                });
+
+        nbTipPaddingBottom.setTitle(activity.getString(R.string.padding_bottom))
+                .setMinNumber(0)
+                .setMaxNumber(100)
+                .setStepNumber(1)
+                .setNumber(readBookControl.getTipPaddingBottom())
+                .setOnChangedListener(number -> {
+                    readBookControl.setTipPaddingBottom((int) number);
+                    changeProListener.upMargin();
+                });
+
+        nbTipPaddingLeft.setTitle(activity.getString(R.string.padding_left))
+                .setMinNumber(0)
+                .setMaxNumber(50)
+                .setStepNumber(1)
+                .setNumber(readBookControl.getTipPaddingLeft())
+                .setOnChangedListener(number -> {
+                    readBookControl.setTipPaddingLeft((int) number);
+                    changeProListener.upMargin();
+                });
+
+        nbTipPaddingRight.setTitle(activity.getString(R.string.padding_right))
+                .setMinNumber(0)
+                .setMaxNumber(50)
+                .setStepNumber(1)
+                .setNumber(readBookControl.getTipPaddingRight())
+                .setOnChangedListener(number -> {
+                    readBookControl.setTipPaddingRight((int) number);
                     changeProListener.upMargin();
                 });
     }

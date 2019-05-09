@@ -15,10 +15,12 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.hwangjr.rxbus.RxBus;
 import com.kunfei.basemvplib.BaseActivity;
 import com.kunfei.basemvplib.impl.IPresenter;
 import com.kunfei.bookshelf.MApplication;
 import com.kunfei.bookshelf.R;
+import com.kunfei.bookshelf.constant.RxBusTag;
 import com.kunfei.bookshelf.utils.ColorUtil;
 import com.kunfei.bookshelf.utils.bar.ImmersionBar;
 import com.kunfei.bookshelf.utils.theme.MaterialValueHelper;
@@ -208,19 +210,19 @@ public abstract class MBaseActivity<T extends IPresenter> extends BaseActivity<T
                 .putBoolean("nightTheme", isNightTheme)
                 .apply();
         MApplication.getInstance().upThemeStore();
-        initTheme();
+        RxBus.get().post(RxBusTag.RECREATE, true);
     }
 
     protected void initTheme() {
-        if (ColorUtil.isColorLight(ThemeStore.primaryColor(this))) {
-            setTheme(R.style.CAppTheme);
-        } else {
-            setTheme(R.style.CAppThemeBarDark);
-        }
         if (isNightTheme()) {
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         } else {
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+        if (ColorUtil.isColorLight(ThemeStore.primaryColor(this))) {
+            setTheme(R.style.CAppTheme);
+        } else {
+            setTheme(R.style.CAppThemeBarDark);
         }
     }
 
@@ -243,5 +245,6 @@ public abstract class MBaseActivity<T extends IPresenter> extends BaseActivity<T
             snackbar.dismiss();
         }
     }
+
 
 }
