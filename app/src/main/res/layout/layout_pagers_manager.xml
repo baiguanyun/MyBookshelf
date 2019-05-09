@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/flPagersManager"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/windowBlackL"
+    android:orientation="vertical">
+
+    <com.kunfei.bookshelf.view.stackview.widget.TabStackView
+        android:id="@+id/ucStackView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+
+    <TextView
+        android:id="@+id/tv_close_all"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:text="开启无痕模式"
+        android:textColor="@color/windowLight"
+        android:textSize="16dp" />
+
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_gravity="bottom"
+        android:background="@color/windowBlackM"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/ivClear"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="60dp"
+            android:padding="12dp"
+            android:src="@drawable/abc_ic_clear_material"
+            android:tint="@android:color/white" />
+
+        <ImageView
+            android:id="@+id/ivAddPager"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:padding="12dp"
+            android:src="@drawable/ic_add"
+            android:tint="@android:color/white" />
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginRight="60dp"
+            android:padding="12dp"
+            android:src="@drawable/abc_ic_ab_back_material"
+            android:tint="@android:color/white" />
+
+
+    </LinearLayout>
+</FrameLayout>

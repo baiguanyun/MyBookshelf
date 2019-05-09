@@ -11,6 +11,11 @@ import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.os.Build;
 import android.text.TextUtils;
+import android.util.Log;
+
+import androidx.annotation.RequiresApi;
+import androidx.multidex.BuildConfig;
+import androidx.multidex.MultiDex;
 
 import com.kunfei.bookshelf.constant.AppConstant;
 import com.kunfei.bookshelf.help.AppFrontBackHelper;
@@ -18,13 +23,12 @@ import com.kunfei.bookshelf.help.CrashHandler;
 import com.kunfei.bookshelf.help.FileHelp;
 import com.kunfei.bookshelf.model.UpLastChapterModel;
 import com.kunfei.bookshelf.utils.theme.ThemeStore;
+import com.tencent.smtt.sdk.QbSdk;
 
 import java.io.File;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
-import androidx.annotation.RequiresApi;
-import androidx.multidex.MultiDex;
 import io.reactivex.internal.functions.Functions;
 import io.reactivex.plugins.RxJavaPlugins;
 
@@ -95,6 +99,26 @@ public class MApplication extends Application {
             }
         });
 
+        initTBS();
+    }
+
+    private void initTBS() {
+        //搜集本地tbs内核信息并上报服务器，服务器返回结果决定使用哪个内核。
+
+        QbSdk.PreInitCallback cb = new QbSdk.PreInitCallback() {
+
+            @Override
+            public void onViewInitFinished(boolean arg0) {
+                //x5內核初始化完成的回调，为true表示x5内核加载成功，否则表示x5内核加载失败，会自动切换到系统内核。
+                Log.d("app", " onViewInitFinished is " + arg0);
+            }
+
+            @Override
+            public void onCoreInitFinished() {
+            }
+        };
+        //x5内核初始化接口
+        QbSdk.initX5Environment(getApplicationContext(), cb);
     }
 
     @Override

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="textColorPrimary">#8b8b8d</color>
+    <color name="bottom_gray">#444</color>
+    <color name="windowBlackL">#1b1b1b</color>
+    <color name="windowBlackM">#151515</color>
+    <color name="windowLight">#444</color>
+    <color name="web_text">#8b8b8d</color>
+    <color name="white_f">#8b8b8d</color>
+    <color name="dividerDark">#313131</color>
+
+
+</resources>

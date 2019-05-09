@@ -19,6 +19,7 @@
     <application
         android:name=".MApplication"
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/network_security_config"
@@ -28,10 +29,11 @@
         android:theme="@style/CAppTheme"
         tools:ignore="AllowBackup,UnusedAttribute"
         tools:replace="android:theme">
-
+        <activity android:name=".view.activity.browser.BrowserActivity"></activity>
         <activity android:name=".view.activity.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
@@ -39,7 +41,6 @@
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
         </activity>
-
         <activity
             android:name=".view.activity.WelcomeBookActivity"
             android:enabled="false"
@@ -47,6 +48,7 @@
             android:roundIcon="@mipmap/book_launcher_round">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
@@ -54,13 +56,11 @@
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
         </activity>
-
         <activity android:name=".view.activity.WelcomeToReadActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".view.activity.ReadBookActivity"
             android:configChanges="locale|keyboardHidden"
@@ -68,17 +68,17 @@
             android:screenOrientation="behind">
             <intent-filter tools:ignore="AppLinkUrlError">
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".view.activity.QRCodeScanActivity"
             android:configChanges="locale|keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".view.activity.MainActivity"
             android:configChanges="locale|keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout"
@@ -96,8 +96,8 @@
             android:name=".view.activity.BookDetailActivity"
             android:configChanges="locale|keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout"
             android:launchMode="singleTask"
-            android:theme="@style/CAppTransparentTheme"
-            android:screenOrientation="behind" />
+            android:screenOrientation="behind"
+            android:theme="@style/CAppTransparentTheme" />
         <activity
             android:name=".view.activity.ImportBookActivity"
             android:configChanges="locale|keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout"
@@ -152,7 +152,8 @@
             android:configChanges="locale|keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout"
             android:launchMode="singleTask"
             android:screenOrientation="behind" />
-        <activity android:name=".view.activity.SourceLoginActivity"
+        <activity
+            android:name=".view.activity.SourceLoginActivity"
             android:configChanges="locale|keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout"
             android:launchMode="singleTask" />
         <activity
@@ -161,20 +162,36 @@
             android:launchMode="singleTask" />
         <activity
             android:name=".view.activity.ReceivingSharedActivity"
-            android:label="@string/receiving_shared_label"
-            android:enabled="true">
+            android:enabled="true"
+            android:label="@string/receiving_shared_label">
             <intent-filter>
                 <action android:name="android.intent.action.PROCESS_TEXT" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="text/plain" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
 
+        <!--browser-->
+        <activity
+            android:name=".view.activity.browser.FullScreenActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name"></activity>
+
+        <activity
+            android:name=".view.activity.browser.FilechooserActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name"></activity>
+        <activity android:name=".view.activity.browser.ImagePreviewActivity" />
+        <activity android:name=".view.activity.browser.WebHistoryActivity" />
 
         <service android:name=".service.DownloadService" />
         <service android:name=".service.ReadAloudService" />
@@ -196,7 +213,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-
     </application>
 
 </manifest>

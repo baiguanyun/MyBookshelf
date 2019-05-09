@@ -19,30 +19,42 @@ import org.greenrobot.greendao.identityscope.IdentityScopeType;
 public class DaoMaster extends AbstractDaoMaster {
     public static final int SCHEMA_VERSION = 55;
 
+    public DaoMaster(Database db) {
+        super(db, SCHEMA_VERSION);
+        registerDaoClass(AdBlockingUserBeanDao.class);
+        registerDaoClass(BookInfoBeanDao.class);
+        registerDaoClass(BookmarkBeanDao.class);
+        registerDaoClass(BookmarksBeanDao.class);
+        registerDaoClass(BookShelfBeanDao.class);
+        registerDaoClass(BookSourceBeanDao.class);
+        registerDaoClass(ChapterListBeanDao.class);
+        registerDaoClass(CollectionBeanDao.class);
+        registerDaoClass(CookieBeanDao.class);
+        registerDaoClass(ReplaceRuleBeanDao.class);
+        registerDaoClass(SearchBookBeanDao.class);
+        registerDaoClass(SearchHistoryBeanDao.class);
+        registerDaoClass(SearchplBeanDao.class);
+        registerDaoClass(TabMagBeanDao.class);
+        registerDaoClass(WebHistoryBeanDao.class);
+    }
+
     /** Creates underlying database table using DAOs. */
     public static void createAllTables(Database db, boolean ifNotExists) {
+        AdBlockingUserBeanDao.createTable(db, ifNotExists);
         BookInfoBeanDao.createTable(db, ifNotExists);
         BookmarkBeanDao.createTable(db, ifNotExists);
+        BookmarksBeanDao.createTable(db, ifNotExists);
         BookShelfBeanDao.createTable(db, ifNotExists);
         BookSourceBeanDao.createTable(db, ifNotExists);
         ChapterListBeanDao.createTable(db, ifNotExists);
+        CollectionBeanDao.createTable(db, ifNotExists);
         CookieBeanDao.createTable(db, ifNotExists);
         ReplaceRuleBeanDao.createTable(db, ifNotExists);
         SearchBookBeanDao.createTable(db, ifNotExists);
         SearchHistoryBeanDao.createTable(db, ifNotExists);
-    }
-
-    /** Drops underlying database table using DAOs. */
-    public static void dropAllTables(Database db, boolean ifExists) {
-        BookInfoBeanDao.dropTable(db, ifExists);
-        BookmarkBeanDao.dropTable(db, ifExists);
-        BookShelfBeanDao.dropTable(db, ifExists);
-        BookSourceBeanDao.dropTable(db, ifExists);
-        ChapterListBeanDao.dropTable(db, ifExists);
-        CookieBeanDao.dropTable(db, ifExists);
-        ReplaceRuleBeanDao.dropTable(db, ifExists);
-        SearchBookBeanDao.dropTable(db, ifExists);
-        SearchHistoryBeanDao.dropTable(db, ifExists);
+        SearchplBeanDao.createTable(db, ifNotExists);
+        TabMagBeanDao.createTable(db, ifNotExists);
+        WebHistoryBeanDao.createTable(db, ifNotExists);
     }
 
     /**
@@ -59,17 +71,23 @@ public class DaoMaster extends AbstractDaoMaster {
         this(new StandardDatabase(db));
     }
 
-    public DaoMaster(Database db) {
-        super(db, SCHEMA_VERSION);
-        registerDaoClass(BookInfoBeanDao.class);
-        registerDaoClass(BookmarkBeanDao.class);
-        registerDaoClass(BookShelfBeanDao.class);
-        registerDaoClass(BookSourceBeanDao.class);
-        registerDaoClass(ChapterListBeanDao.class);
-        registerDaoClass(CookieBeanDao.class);
-        registerDaoClass(ReplaceRuleBeanDao.class);
-        registerDaoClass(SearchBookBeanDao.class);
-        registerDaoClass(SearchHistoryBeanDao.class);
+    /** Drops underlying database table using DAOs. */
+    public static void dropAllTables(Database db, boolean ifExists) {
+        AdBlockingUserBeanDao.dropTable(db, ifExists);
+        BookInfoBeanDao.dropTable(db, ifExists);
+        BookmarkBeanDao.dropTable(db, ifExists);
+        BookmarksBeanDao.dropTable(db, ifExists);
+        BookShelfBeanDao.dropTable(db, ifExists);
+        BookSourceBeanDao.dropTable(db, ifExists);
+        ChapterListBeanDao.dropTable(db, ifExists);
+        CollectionBeanDao.dropTable(db, ifExists);
+        CookieBeanDao.dropTable(db, ifExists);
+        ReplaceRuleBeanDao.dropTable(db, ifExists);
+        SearchBookBeanDao.dropTable(db, ifExists);
+        SearchHistoryBeanDao.dropTable(db, ifExists);
+        SearchplBeanDao.dropTable(db, ifExists);
+        TabMagBeanDao.dropTable(db, ifExists);
+        WebHistoryBeanDao.dropTable(db, ifExists);
     }
 
     public DaoSession newSession() {

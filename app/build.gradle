@@ -30,7 +30,11 @@ android {
         versionName version
         project.ext.set("archivesBaseName", name + "_" + version)
         multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
 
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
+        }
     }
 
     lintOptions {
@@ -66,6 +70,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':basemvplib')
+    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
     testImplementation 'junit:junit:4.12'
 
     //fireBase
@@ -135,6 +140,16 @@ dependencies {
         exclude group: 'org.slf4j'
         exclude group: 'xmlpull'
     }
+
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.41'
+
+    //RxJava
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.10'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+
+    implementation 'com.bm.photoview:library:1.4.1'
+    implementation 'com.github.nukc.stateview:library:1.5.4'
+
 
 }
 

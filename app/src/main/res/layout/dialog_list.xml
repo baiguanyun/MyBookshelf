@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@null">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/popup_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="@drawable/bg_gray_5dp"
+        android:backgroundTint="@color/white_f"
+        android:elevation="10dp"
+        android:overScrollMode="never"
+        android:scrollbars="none" />
+
+</RelativeLayout>

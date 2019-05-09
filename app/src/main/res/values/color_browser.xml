@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="textColorPrimary">#ff000000</color>
+    <color name="bottom_gray">#ECF0F2</color>
+    <color name="windowBlackL">#1b1b1b</color>
+    <color name="windowBlackM">#151515</color>
+    <color name="windowLight">#fff</color>
+    <color name="web_text">#F6F6F6</color>
+    <color name="text_color">#4D4D4D</color>
+    <color name="home_null_text">#D3D3D3</color>
+    <color name="white_f">#ffffff</color>
+    <color name="purple">#444073</color>
+    <color name="dividerDark">#eaeaea</color>
+
+
+</resources>

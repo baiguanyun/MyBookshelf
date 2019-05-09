@@ -1,6 +1,9 @@
 package com.kunfei.bookshelf.utils;
 
 import android.annotation.SuppressLint;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
 
@@ -372,4 +375,41 @@ public class StringUtils {
         m.appendTail(buf);
         return buf.toString();
     }
+
+    /**
+     * 复制文本到粘贴板
+     *
+     * @param context 上下文
+     * @param text    文本内容
+     */
+    public static void copyText(Context context, String text) {
+        ClipData myClip = ClipData.newPlainText("text", text);
+        ClipboardManager cm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+        cm.setPrimaryClip(myClip);
+    }
+
+    /**
+     * 获取粘贴板内容
+     *
+     * @param context
+     */
+    public static String getCopyText(Context context) {
+        ClipboardManager cm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData data = cm != null ? cm.getPrimaryClip() : null;
+        if (data != null) {
+            ClipData.Item item = data.getItemAt(0);
+            if (item != null && item.getText() != null) {
+                String content = item.getText().toString();
+                if (!TextUtils.isEmpty(content)) {
+                    return content;
+                } else {
+                    return "";
+                }
+            } else {
+                return "";
+            }
+        }
+        return "";
+    }
+
 }

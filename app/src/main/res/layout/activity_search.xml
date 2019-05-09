@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_f"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginBottom="6dp"
+            android:background="@drawable/bg_gray_randon">
+
+            <ImageView
+                android:id="@+id/iv_search_witch"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_centerVertical="true"
+                android:background="?selectableItemBackground"
+                android:padding="9dp"
+                android:src="@drawable/ic_search" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/btn_search"
+                android:layout_toRightOf="@+id/iv_search_witch">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/ed_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toLeftOf="@+id/iv_delete"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="搜索或输入网址"
+                    android:imeOptions="actionSearch"
+                    android:paddingLeft="6dp"
+                    android:singleLine="true"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/iv_delete"
+                    android:layout_width="44dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_delete"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+
+            <Button
+                android:id="@+id/btn_search"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:background="?android:attr/colorBackground"
+                android:paddingLeft="6dp"
+                android:text="取消"
+                android:textColor="@color/text_color" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_copy_context"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/iv_copy"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:src="@drawable/ic_search_copy" />
+
+            <TextView
+                android:id="@+id/tv_context"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="20dp"
+                android:layout_toRightOf="@id/iv_copy"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="http://www.h2os.com/download?_wsq_downloaddownloaddownloaddownloaddownload"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/tv_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_context"
+                android:layout_marginTop="4dp"
+                android:layout_toRightOf="@id/iv_copy"
+                android:text="最近复制的内容，点击访问"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_head_hot_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="12dp">
+
+            <TextView
+                android:id="@+id/textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="热门搜索"
+                android:textSize="13sp" />
+
+            <com.kunfei.bookshelf.view.web.SearchTipsGroupView
+                android:id="@+id/search_tips"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_head_root"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/textview_head"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:gravity="center_vertical"
+                android:text="搜索历史"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tv_delete_history"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="16dp"
+                android:gravity="center_vertical"
+                android:text="清空记录"
+                android:textColor="@color/colorPrimary"
+                android:textSize="13sp" />
+        </RelativeLayout>
+
+        <com.kunfei.bookshelf.view.web.XRecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="2dp"
+            android:background="@color/white"
+            android:scrollbars="vertical" />
+
+    </LinearLayout>
+
+</FrameLayout>

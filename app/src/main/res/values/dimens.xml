@@ -27,4 +27,11 @@
     <dimen name="fastscroll_scrollbar_margin_bottom">8dp</dimen>
     <dimen name="fastscroll_scrollbar_padding_start">8dp</dimen>
     <dimen name="fastscroll_scrollbar_padding_end">8dp</dimen>
+
+    //browser
+    <dimen name="dimen_48dp">48dp</dimen>
+    <dimen name="uc_head_layout_height">310dp</dimen>
+    <dimen name="uc_tab_card_height">500dp</dimen>
+    <integer name="max_tab_count">10</integer>
+
 </resources>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llBottomBar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_gravity="bottom"
+    android:background="@color/bottom_gray"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:layout_gravity="top"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:saveEnabled="false"
+            android:src="@drawable/ic_bottom_back" />
+
+        <ImageView
+            android:id="@+id/ivForward"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:saveEnabled="false"
+            android:src="@drawable/ic_bottom_forward" />
+
+        <ImageView
+            android:id="@+id/ivHome"
+            android:layout_width="0dp"
+            android:layout_height="43dp"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:src="@drawable/ic_bottom_home" />
+
+        <FrameLayout
+            android:id="@+id/flWindowsNum"
+            android:layout_width="0dp"
+            android:layout_height="43dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_window"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:src="@drawable/ic_bottom_window" />
+
+            <TextView
+                android:id="@+id/tvPagerNum"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="5"
+                android:textColor="@color/black"
+                android:textSize="10sp" />
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/ivMore"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:src="@drawable/ic_bottom_menu" />
+    </LinearLayout>
+
+</LinearLayout>
