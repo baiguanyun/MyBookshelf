@@ -17,6 +17,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+
 import com.google.android.flexbox.FlexboxLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.hwangjr.rxbus.RxBus;
@@ -40,11 +46,6 @@ import com.kunfei.bookshelf.widget.recycler.refresh.RefreshRecyclerView;
 
 import java.util.List;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -163,12 +164,6 @@ public class SearchBookActivity extends MBaseActivity<SearchBookContract.Present
         switch (id) {
             case R.id.action_book_source_manage:
                 BookSourceActivity.startThis(this);
-                break;
-            case R.id.action_donate:
-                DonateActivity.startThis(this);
-                break;
-            case R.id.action_get_hb:
-                DonateActivity.getZfbHb(this);
                 break;
             case android.R.id.home:
                 SoftInputUtil.hideIMM(getCurrentFocus());

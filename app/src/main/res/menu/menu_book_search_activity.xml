@@ -9,16 +9,4 @@
         android:title="@string/book_source_manage"
         app:showAsAction="never" />
 
-    <item
-        android:id="@+id/action_donate"
-        android:icon="@drawable/ic_donate"
-        android:title="@string/donate"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/action_get_hb"
-        android:icon="@drawable/ic_donate"
-        android:title="@string/get_ali_pay_hb"
-        app:showAsAction="never" />
-
 </menu>

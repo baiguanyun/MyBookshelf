@@ -24,6 +24,10 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.Toolbar;
+
 import com.google.android.material.appbar.AppBarLayout;
 import com.hwangjr.rxbus.RxBus;
 import com.kunfei.basemvplib.AppActivityManager;
@@ -63,9 +67,6 @@ import com.kunfei.bookshelf.widget.page.animation.PageAnimation;
 import java.util.List;
 import java.util.Objects;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.widget.Toolbar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -788,11 +789,6 @@ public class ReadBookActivity extends MBaseActivity<ReadBookContract.Presenter> 
             case R.id.action_login:
                 SourceLoginActivity.startThis(this, mPresenter.getBookSource());
                 break;
-            case R.id.action_get_hb:
-                DonateActivity.getZfbHb(this);
-                upMenu();
-                mHandler.postDelayed(this::refreshDurChapter, 2000);
-                break;
             case android.R.id.home:
                 finish();
                 break;
@@ -1221,13 +1217,6 @@ public class ReadBookActivity extends MBaseActivity<ReadBookContract.Presenter> 
                         menu.getItem(i).setVisible(true);
                     } else {
                         menu.getItem(i).setVisible(false);
-                    }
-                    break;
-                case R.id.menu_get_zfb_hb:
-                    if (MApplication.getInstance().getDonateHb()) {
-                        menu.getItem(i).setVisible(false);
-                    } else {
-                        menu.getItem(i).setVisible(true);
                     }
                     break;
             }
